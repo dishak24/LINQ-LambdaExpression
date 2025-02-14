@@ -30,6 +30,7 @@ namespace LambdaLinq
             "Pratibha@out.in"
         };
 
+//----------------------------------------------- Basic Level Methods ---------------------------------------------------------
         public void StringStartWith()
         {
             var strResult = nameList.Where(str => str.StartsWith("A")).ToList();
@@ -51,9 +52,34 @@ namespace LambdaLinq
         public void StringEndWith()
         {
             Console.WriteLine("Strings which are ends with '.com' : ");
-            var result = emailList.Where(s => s.EndsWith(".com")).ToList();
-            result.ForEach(print => Console.Write(print + " "));
+            var result = emailList.Where( s => s.EndsWith(".com")).ToList();
+            result.ForEach(print => Console.Write( print + " "));
             Console.WriteLine();
+            Console.WriteLine();
+        }
+
+//--------------------------------------Intermediate Level Methods----------------------------------------------------------------
+
+
+        public void GroupByFirstLetter()
+        {
+            var group = nameList.GroupBy(name => name[0]).ToList();
+            foreach (var str in group)
+            {
+                Console.WriteLine($"Group by name with First letter : ");
+                foreach (var letter in str)
+                {
+                    Console.WriteLine(letter);
+                }
+                Console.WriteLine();
+
+            }
+        }
+
+        public void FindLongestString()
+        {
+            var str = nameList.OrderByDescending(s => s.Length).FirstOrDefault();
+            Console.WriteLine($"The Longest String : {str}");
             Console.WriteLine();
         }
     }
