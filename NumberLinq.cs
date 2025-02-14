@@ -10,7 +10,9 @@ namespace LambdaLinq
     {
         List<int> intList = new List<int>() { 7, 9, 11, 55, 2, 80, 44, 2, 11, 7, 70, 9};
 
-       public void PrintEven()
+//--------------------------------------Basic Level Methods----------------------------------------------------------------
+
+        public void PrintEven()
         {
             
             Console.WriteLine("Even Elements: ");
@@ -83,5 +85,47 @@ namespace LambdaLinq
 
         }
 
+
+    //--------------------------------------Intermediate Level Methods----------------------------------------------------------------
+        public void FindTopThreeNumbers()
+        {
+            Console.WriteLine("Top 3 Numbers in List : ");
+            var top = intList.OrderByDescending(num => num).Take(3).ToList();
+            top.ForEach(x => Console.Write(x + " "));
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+
+        public void CheckAllPositive()
+        {
+            Console.WriteLine("Check All elements in a list of integers are positive or not ? ");
+            bool positive = intList.All(ele => ele >= 0);
+            Console.WriteLine( positive ? "Yes, all positives" : "No, Not all positives!" );//ternary operator
+            Console.WriteLine();
+        }
+
+        public void FindNumberDivisible()
+        {
+            var divisible = intList.FirstOrDefault(num => (num % 3 == 0 && num % 5 == 0));
+            if (divisible != 0)
+            {
+                Console.WriteLine($"{divisible} is a 1st number divisible by 3 and 5. ");
+            }
+            else
+            {
+                Console.WriteLine("Number divisible by 3 and 5 is not available !!!! ");
+            }
+            Console.WriteLine();
+        }
+
+        public void CombineTwoLists()
+        {
+            List<int> newList = new List<int>() { 11, 22, 33, 44, 55};
+            var combine = intList.Union(newList).ToList();
+            Console.WriteLine("Combining 2 Lists without Duplicate :");
+            combine.ForEach( n => Console.Write(n + " "));
+            Console.WriteLine();
+            Console.WriteLine();
+        }
     }
 }
