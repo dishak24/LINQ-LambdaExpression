@@ -7,6 +7,7 @@ internal class Program
         Console.WriteLine("Welcome to the Lambda-LINQ Expression Practice !");
         Console.WriteLine();
 
+
         NumberLinq numberLinq = new NumberLinq();
         numberLinq.PrintEven();
         numberLinq.PrintGreaterNumber();
@@ -15,16 +16,27 @@ internal class Program
         numberLinq.FindMaxNumber();
         numberLinq.NumberSquare();
         numberLinq.CalculateOddSum();
+        
+        numberLinq.FindTopThreeNumbers();
+        numberLinq.CheckAllPositive();
+        numberLinq.FindNumberDivisible();
+        numberLinq.CombineTwoLists();
 
+        LinqExample linqExample = new LinqExample();
+        linqExample.PerformWhere();
 
         StringLinq stringLinq = new StringLinq();
         stringLinq.StringStartWith();
         stringLinq.CountString();
         stringLinq.StringEndWith();
 
-        LinqExample linqExample = new LinqExample();
-        linqExample.PerformWhere();
+        stringLinq.GroupByFirstLetter();
+        stringLinq.FindLongestString();
 
+        FloatNumberList floatNumberList = new FloatNumberList();
+        floatNumberList.CalculateAverage();
 
+        EmployeeList employeeList = new EmployeeList();
+        employeeList.FindSalary();
     }
 }
